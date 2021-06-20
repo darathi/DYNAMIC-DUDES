@@ -1,0 +1,258 @@
+<!doctype html>
+
+<head>
+    <title>LONE LOVE</title>
+    <link rel="
+    stylesheet" href="sayitout.css">
+    <style>
+    /* CSS comes here */
+    * {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body {
+    background: #161623;
+}
+.glass1 {
+    min-height:90vh;
+    width:80%;
+    margin-left:150px;
+    margin-top:15px;
+    background: linear-gradient(to right top,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
+    border-radius:2rem;
+    z-index: 2;
+    display: flex;
+    position:absolute;
+    position:fixed;
+    backdrop-filter:blur(2rem);
+}
+.firstcircle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    height: 100%;
+        background:  linear-gradient(#f00, #f0f);
+    clip-path: circle(30% at right 70%);
+}
+.firstcircle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    height: 100%;
+    background:  linear-gradient(#2196f3, #e91e63);
+    clip-path: circle(20% at 10% 10%);
+}
+    #video {
+        border: 1px solid black;
+        width: 500px;
+        height: 240px;
+        display: flex;
+        align-items: center;
+        margin-left:150px;
+    }
+
+    #photo {
+        border: 1px solid black;
+        width: 500px;
+        height: 240px;
+        display: flex;
+        align-items: center;
+        margin-left:150px;
+    }
+
+    #canvas{
+        display: none;
+    }
+
+    .camera {
+        width: 500px;
+        display: inline-block;
+    }
+
+    .output {
+        width: 500px;
+        display: inline-block;
+    }
+
+    #startbutton {
+        display: block;
+        position: relative;
+        margin-left: 5px;
+        margin-right: 0px;
+        bottom: 36px;
+        padding: 5px;
+        background-color: #6a67ce;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+        width:100px;
+        height:50px;
+        border-radius: 10px;
+        color: rgba(255, 255, 255, 1.0);
+        cursor: pointer;
+    }
+
+    .contentarea {
+        font-size: 16px;
+        font-family: Arial;
+        text-align: center;
+    }
+    </style>
+    <title></title>
+</head>
+
+<body>
+    <main>
+        <section class="firstcircle">
+        <section class="glass1">
+            <div class="links">
+                <div class="link">
+                  <a href="ReadItOut.html" style="text-decoration: none;">
+                    <i class="fa fa-book" style="color:black"></i></a>
+                    <a href="ReadItOut.html" style="text-decoration: none;">
+                  <h2>Read it out</h2>
+                </a>
+                </div>
+                <div class="link">
+                  <a href="SKETCHITFN.html" style="text-decoration: none;">
+                    <i class="fas fa-palette"  style="color:black;"></i></a>
+                    <a href="SKETCHITFN.html" style="text-decoration: none;">
+                  <h2>Sketch it out</h2>
+                </a>
+                </div>
+                <div class="link">
+                  <a href="WriteItOut.html" style="text-decoration: none;">
+                    <i class="fas fa-pen-fancy" style="color:black;"></i></a>
+                    <a href="WriteItOut.html" style="text-decoration: none;">
+                  <h2>Write it out</h2>
+                </a>
+                </div>
+                <div class="link">
+                  <a href="singit.html" style="text-decoration: none;">
+                    <i class="fas fa-music"  style="color:black;"></i></a>
+                    <a href="singit.html" style="text-decoration: none;">
+                  <h2>Sing it out</h2>
+                </a>
+                </div>
+                <div class="link">
+                  <a href="sayitout.html" style="text-decoration: none;">
+                    <i class="fas fa-microphone"  style="color:black;"></i></a>
+                    <a href="sayitout.html" style="text-decoration: none;">
+                  <h2>Say it out</h2>
+                  </a>
+                </div>
+                <div class="link">
+                  <a href="snapitout.html" style="text-decoration: none;">
+                    <i class="fas fa-camera" style="color:black;"></i></a>
+                    <a href="snapitout.html" style="text-decoration: none;">
+                  <h2 style="color:black;">Snap it out</h2>
+                </a>
+                </div>
+                </div>
+    <div class="contentarea">
+        <h2 style="margin-top:20px;font-family: 'Pangolin', cursive;">
+            Taking weird pictures boosts<br/> up your mind..!!
+        </h2>
+        <div class="camera">
+            <video id="video">Video stream not available.</video>
+        </div>
+        <div><button id="startbutton">Take photo</button></div>
+        <canvas id="canvas"></canvas>
+        <div class="output">
+            <img id="photo" alt="The screen capture will appear in this box.">
+        </div>
+    </div>
+</section>
+</section>
+</main>
+
+    <script>
+    /* JS comes here */
+    (function() {
+
+        var width = 320; // We will scale the photo width to this
+        var height = 0; // This will be computed based on the input stream
+
+        var streaming = false;
+
+        var video = null;
+        var canvas = null;
+        var photo = null;
+        var startbutton = null;
+
+        function startup() {
+            video = document.getElementById('video');
+            canvas = document.getElementById('canvas');
+            photo = document.getElementById('photo');
+            startbutton = document.getElementById('startbutton');
+
+            navigator.mediaDevices.getUserMedia({
+                    video: true,
+                    audio: false
+                })
+                .then(function(stream) {
+                    video.srcObject = stream;
+                    video.play();
+                })
+                .catch(function(err) {
+                    console.log("An error occurred: " + err);
+                });
+
+            video.addEventListener('canplay', function(ev) {
+                if (!streaming) {
+                    height = video.videoHeight / (video.videoWidth / width);
+
+                    if (isNaN(height)) {
+                        height = width / (4 / 3);
+                    }
+
+                    video.setAttribute('width', width);
+                    video.setAttribute('height', height);
+                    canvas.setAttribute('width', width);
+                    canvas.setAttribute('height', height);
+                    streaming = true;
+                }
+            }, false);
+
+            startbutton.addEventListener('click', function(ev) {
+                takepicture();
+                ev.preventDefault();
+            }, false);
+
+            clearphoto();
+        }
+
+
+        function clearphoto() {
+            var context = canvas.getContext('2d');
+            context.fillStyle = "#AAA";
+            context.fillRect(0, 0, canvas.width, canvas.height);
+
+            var data = canvas.toDataURL('image/png');
+            photo.setAttribute('src', data);
+        }
+
+        function takepicture() {
+            var context = canvas.getContext('2d');
+            if (width && height) {
+                canvas.width = width;
+                canvas.height = height;
+                context.drawImage(video, 0, 0, width, height);
+
+                var data = canvas.toDataURL('image/png');
+                photo.setAttribute('src', data);
+            } else {
+                clearphoto();
+            }
+        }
+
+        window.addEventListener('load', startup, false);
+    })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoneLove</title>
+    <link rel="stylesheet" href="WriteItOut (1).css">
+    <script src="https://kit.fontawesome.com/d9f7ec7b29.js" crossorigin="anonymous"></script>
+</head>
+
+<body onload="load_text()">
+        <section>
+            <div class="glass">
+                <div class="links">
+                    <div class="link">
+                      <a href="ReadItOut.html" style="text-decoration: none;">
+                        <i class="fa fa-book" style="color:black"></i></a>
+                        <a href="ReadItOut.html" style="text-decoration: none;">
+                      <h2>Read it out</h2>
+                    </a>
+                    </div>
+                    <div class="link">
+                      <a href="SKETCHITFN.html" style="text-decoration: none;">
+                        <i class="fas fa-palette"  style="color:black;"></i></a>
+                        <a href="SKETCHITFN.html" style="text-decoration: none;">
+                      <h2>Sketch it out</h2>
+                    </a>
+                    </div>
+                    <div class="link">
+                      <a href="WriteItOut.html" style="text-decoration: none;">
+                        <i class="fas fa-pen-fancy" style="color:black;"></i></a>
+                        <a href="WriteItOut.html" style="text-decoration: none;">
+                      <h2 style="color:black;">Write it out</h2>
+                    </a>
+                    </div>
+                    <div class="link">
+                      <a href="singit.html" style="text-decoration: none;">
+                        <i class="fas fa-music"  style="color:black;"></i></a>
+                        <a href="singit.html" style="text-decoration: none;">
+                      <h2>Sing it out</h2>
+                    </a>
+                    </div>
+                    <div class="link">
+                      <a href="sayitout.html" style="text-decoration: none;">
+                        <i class="fas fa-microphone"  style="color:black;"></i></a>
+                        <a href="sayitout.html" style="text-decoration: none;">
+                      <h2>Say it out</h2>
+                      </a>
+                    </div>
+                    <div class="link">
+                      <a href="snapitout.html" style="text-decoration: none;">
+                        <i class="fas fa-camera" style="color:black;"></i></a>
+                        <a href="snapitout.html" style="text-decoration: none;">
+                      <h2>Snap it out</h2>
+                    </a>
+                    </div>
+                    </div>
+
+
+                <form name="controls" class="settings">
+
+                    <span class="tooltiptext"></span> 
+
+                    <select class="box1" title="Pick a new font for your text" onchange="changeFontStyle (this);">
+                        <option value="Arial" selected>Arial</option>
+                        <option value="Arial Black">Arial Black</option>
+                        <option value="Bahnschrift">Bahnschrift</option>
+                        <option value="Calibri Light">Calibri Light</option>
+                        <option value="Cambria">Cambria</option>
+                        <option value="Candara">Candara</option>
+                        <option value="Comic Sans MS">Comic Sans MS</option>
+                        <option value="Consolas">Consolas</option>
+                        <option value="Constantia">Constantia</option>
+                        <option value="Corbel">Corbel</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Ebrima">Ebrima</option>
+                        <option value="Franklin Gothic Medium">Franklin Gothic Medium</option>
+                        <option value="Gabriola">Gabriola</option>
+                        <option value="Gadugi">Gadugi</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="HoloLens MDL2 Assets">HoloLens MDL2 Assets</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Ink Free">Ink Free</option>
+                        <option value="Javanese Text">Javanese Text</option>
+                        <option value="Leelawadee UI">Leelawadee UI</option>
+                        <option value="Lucida Console">Lucida Console</option>
+                        <option value="Malgun Gothic">Malgun Gothic</option>
+                        <option value="Marlett">Marlett</option>
+                        <option value="Microsoft Himalaya">Microsoft Himalaya</option>
+                        <option value="MS Gothic">MS Gothic</option>
+                        <option value="MV Boli">MV Boli</option>
+                        <option value="Myanmar Text">Myanmar Text</option>
+                        <option value="Nirmala UI">Nirmala UI</option>
+                        <option value="Palatino Linotype">Palatino Linotype</option>
+                        <option value="Segoe MDL2 Assets">Segoe MDL2 Assets</option>
+                        <option value="Segoe Print">Segoe Print</option>
+                        <option value="Segoe UI">Segoe UI</option>
+                        <option value="Symbol">Symbol</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Webdings">Webdings</option>
+                        <option value="Wingdings">Wingdings</option>
+                        <option value="Yu Gothic">Yu Gothic</option>
+                    </select>
+
+                    <input class="box2"  type="button" value="B" title="Make your text bold" onclick="bold_click()">
+                
+                    <input class="box3" type="button" value="i" title="Italicize your text" onclick="italic_click()">
+                
+                    <input class="box4" type="button" value="U" title="Underline your text" onclick="underline_click()">
+                
+                    <input class="box5" type="button" value="n" title="Remove font effects" onclick="normal_click()">                  
+
+                    <input class="box7" type="reset" title="Clear the text" value="Clear" onclick="clear_click()">
+
+                    <br/>
+
+                    <textarea class="workspace"  id="output" name="output" rows="9" wrap="virtual" cols=48 placeholder="EXPRESS YOUR FEELINGS... WRITE IT OUT... "></textarea>
+
+                  </form>
+            </div>
+  
+</section>
+</body>
+    <script src="script.js"></script>
+</html>

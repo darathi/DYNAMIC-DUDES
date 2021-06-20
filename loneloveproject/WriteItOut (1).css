@@ -1,0 +1,196 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@100&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #161623;
+    min-height: 100vh;
+}
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    height: 100%;
+    background:  linear-gradient(#f00, #f0f);
+    clip-path: circle(30% at right 70%);
+}
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    height: 100%;
+    background:  linear-gradient(#2196f3, #e91e63);
+    clip-path: circle(20% at 10% 10%);
+}
+.glass {
+    top: 2%;
+    left: 7%;
+    min-height: 95vh;
+    width: 85%;
+    position: fixed;
+    background: linear-gradient(to right bottom,rgba(255,255,255,0.7),rgba(255,255,255,0.3));
+    border-radius: 2rem;
+    z-index: 2;
+    display: flex;
+    backdrop-filter: blur(2rem);
+}
+.links {
+    width: 500px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.link {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    padding-left:20px;
+    margin: 10px 0px;
+}
+.link a {
+    cursor: pointer;
+    text-decoration: none;
+}
+.link h2 {
+    font-size:20px;
+    color:rgb(36,134,247);
+    padding: 0rem 2rem ;
+    font-family: 'Prompt','sans-serif';
+}
+.link i {
+    color:#65dfc9;
+}
+.settings {
+    padding-top: 30px;
+}
+.box1 {
+    margin-left: 23px;
+    width: 250px;
+    height:40px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:17px;
+    background: rgb(82, 82, 82);
+    color:#FFF;
+    border-radius: 4px;
+    transition: background 0.3s linear 0.1s , color 0.5s linear 0s;
+}
+.box2 {
+    font-weight: bolder; 
+    width: 40px; 
+    height: 40px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:17px;
+    background: rgb(82, 82, 82);
+    color:#FFF;
+    border-radius: 4px;
+    transition: background 0.3s linear 0.1s , color 0.5s linear 0s;
+    
+}
+.box2:hover {
+    background: #eff7f7;
+    color: #000;
+}
+.box3 {
+    width: 40px; 
+    font-style: italic;
+    height: 40px;
+    border-radius: 8px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:17px;
+    background: rgb(82, 82, 82);
+    color:#FFF;
+    border-radius: 4px;
+    transition: background 0.3s linear 0.1s , color 0.5s linear 0s;
+}
+.box3:hover {
+    background: #eff7f7;
+    color: #000;
+}
+.box4 {
+    width: 40px; 
+    height: 40px; 
+    text-decoration: underline;
+    border-radius: 8px; 
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:17px;
+    background: rgb(82, 82, 82);
+    color:#FFF;
+    border-radius: 4px;
+    transition: background 0.3s linear 0.1s , color 0.5s linear 0s;
+}
+.box4:hover {
+    background: #eff7f7;
+    color: #000;
+}
+.box5 {
+    width: 40px; 
+    height: 40px;
+    border-radius: 8px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:17px;
+    background: rgb(82, 82, 82);
+    color:#FFF;
+    border-radius: 4px;
+    transition: background 0.3s linear 0.1s , color 0.3s linear 0s;
+}
+.box5:hover {
+    background: #eff7f7;
+    color: #000;
+}
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+.box4:hover .box5:hover .tooltiptext {
+    visibility: visible;
+}
+.box7 {
+    width: 100px; 
+    height: 40px;
+    border-radius: 8px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:17px;
+    background: rgb(82, 82, 82);
+    color:#FFF;
+    border-radius: 4px;
+    transition: background 0.3s linear 0.1s , color 0.5s linear 0s;
+}
+.box7:hover {
+    background: #eff7f7;
+    color: #000;
+}
+.workspace {
+    padding: 10px;
+    width: 870px;
+    height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 20px;
+    resize: none;
+    font-family: "Arial";
+}
